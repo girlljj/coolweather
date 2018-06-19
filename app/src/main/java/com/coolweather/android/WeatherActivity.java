@@ -98,7 +98,7 @@ public class WeatherActivity extends AppCompatActivity {
         if (weatherString != null) {
             // 有缓存时直接解析天气数据
             Weather weather = Utility.handleWeatherResponse(weatherString);
-          //  mWeatherId = weather.basic.weatherId;
+            mWeatherId = weather.basic.weatherId;
             showWeatherInfo(weather);
         } else {
             // 无缓存时去服务器查询天气
@@ -106,7 +106,7 @@ public class WeatherActivity extends AppCompatActivity {
             weatherLayout.setVisibility(View.INVISIBLE);
             requestWeather(mWeatherId);
         }
-       /* swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 requestWeather(mWeatherId);
@@ -117,7 +117,7 @@ public class WeatherActivity extends AppCompatActivity {
             public void onClick(View v) {
                 drawerLayout.openDrawer(GravityCompat.START);
             }
-        });*/
+        });
         String bingPic = prefs.getString("bing_pic", null);
         if (bingPic != null) {
             Glide.with(this).load(bingPic).into(bingPicImg);
